@@ -28,22 +28,15 @@ document.querySelector(".btn-roll").addEventListener("click", () => {
     document.getElementById("dice-2").src = "dice-" + dice2 + ".png";
 
     //Update the score if rolled number is not 1
-    if (dice === 6 && lastDice === 0) {
-      //player loses score
-      scores[activePlayer] = 0;
-      document.querySelector("#score-" + activePlayer).textContent = "0";
-      nextPlayer();
-    } else if (dice !== 1) {
+    if (dice1 !== 1 && dice2 !== 1) {
       //Add Score
-      roundScore += dice;
+      roundScore += dice1 + dice2;
       document.querySelector(
         "#current-" + activePlayer
       ).textContent = roundScore;
     } else {
       nextPlayer();
     }
-
-    lastDice = dice;
   }
 });
 
